@@ -113,32 +113,19 @@ void Check(int a)
 	}
 }
 
-void winCheck()
+void winCheck(int ch, int check)
 {
 	//Horizontal Check 1
-	if (ca[0] == ca[9] && ca[1] == ca[9] && ca[2] == ca[9]) Check(1);
-	if (ca[3] == ca[9] && ca[4] == ca[9] && ca[5] == ca[9]) Check(1);
-	if (ca[6] == ca[9] && ca[7] == ca[9] && ca[8] == ca[9]) Check(1);
+	if (ca[0] == ca[ch] && ca[1] == ca[ch] && ca[2] == ca[ch]) Check(check);
+	if (ca[3] == ca[ch] && ca[4] == ca[ch] && ca[5] == ca[ch]) Check(check);
+	if (ca[6] == ca[ch] && ca[7] == ca[ch] && ca[8] == ca[ch]) Check(check);
 	//Vertical Check 1
-	if (ca[0] == ca[9] && ca[3] == ca[9] && ca[6] == ca[9]) Check(1);
-	if (ca[1] == ca[9] && ca[4] == ca[9] && ca[7] == ca[9]) Check(1);
-	if (ca[2] == ca[9] && ca[5] == ca[9] && ca[8] == ca[9]) Check(1);
+	if (ca[0] == ca[ch] && ca[3] == ca[ch] && ca[6] == ca[ch]) Check(check);
+	if (ca[1] == ca[ch] && ca[4] == ca[ch] && ca[7] == ca[ch]) Check(check);
+	if (ca[2] == ca[ch] && ca[5] == ca[ch] && ca[8] == ca[ch]) Check(check);
 	//Diagonal Check 1
-	if (ca[2] == ca[9] && ca[4] == ca[9] && ca[6] == ca[9]) Check(1);
-	if (ca[0] == ca[9] && ca[4] == ca[9] && ca[8] == ca[9]) Check(1);
-
-
-	//Horizontal Check 2
-	if (ca[0] == ca[10] && ca[1] == ca[10] && ca[2] == ca[10]) Check(2);
-	if (ca[3] == ca[10] && ca[4] == ca[10] && ca[5] == ca[10]) Check(2);
-	if (ca[6] == ca[10] && ca[7] == ca[10] && ca[8] == ca[10]) Check(2);
-	//Vertical Check 2
-	if (ca[0] == ca[10] && ca[3] == ca[10] && ca[6] == ca[10]) Check(2);
-	if (ca[1] == ca[10] && ca[4] == ca[10] && ca[7] == ca[10]) Check(2);
-	if (ca[2] == ca[10] && ca[5] == ca[10] && ca[8] == ca[10]) Check(2);
-	//Diagonal Check 1
-	if (ca[2] == ca[10] && ca[4] == ca[10] && ca[6] == ca[10]) Check(2);
-	if (ca[0] == ca[10] && ca[4] == ca[10] && ca[8] == ca[10]) Check(2);
+	if (ca[2] == ca[ch] && ca[4] == ca[ch] && ca[6] == ca[ch]) Check(check);
+	if (ca[0] == ca[ch] && ca[4] == ca[ch] && ca[8] == ca[ch]) Check(check);
 }
 
 
@@ -146,13 +133,12 @@ void Logic()
 {
 	Board();
 	Game(1);
-	winCheck();
+	winCheck(9, 1);
 	system("cls");
 	Board();
 	Game(2);
-	winCheck();
+	winCheck(10, 2);
 	system("cls");
-
 }
 
 
