@@ -4,7 +4,7 @@
 #define GAP "\t|"
 #define TAB "\t"
 #define G "    "
-#define LINE "--------|"
+#define LINE "-------|"
 void winCheck();
 void Board();
 void Game1();
@@ -16,9 +16,10 @@ bool player2turn = false;
 bool Win1 = false;
 bool Win2 = false;
 
+
 int main()
 {
-	while (!gameOver)
+	do 
 	{
 		Board();
 		Game1();
@@ -28,7 +29,7 @@ int main()
 		Game2();
 		winCheck();
 		system("cls");
-	}
+	} while (!gameOver);
 	Board();
 	system("pause");
 
