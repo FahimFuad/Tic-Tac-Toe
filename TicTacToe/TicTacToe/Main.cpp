@@ -9,13 +9,12 @@ void winCheck();
 void Board();
 void Game1();
 void Game2();
-std::string ca[11] = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "X", "O"};
+char ca[11] = { '1', '2', '3', '4', '5', '6', '7', '8', '9', 'X', 'O' };
 bool gameOver = false;
 bool player1turn = true;
 bool player2turn = false;
 bool Win1 = false;
 bool Win2 = false;
-
 
 int main()
 {
@@ -32,7 +31,7 @@ int main()
 	}
 	Board();
 	system("pause");
-	
+
 }
 
 
@@ -66,61 +65,28 @@ void Board()
 	}
 }
 
-void Player1Play()
+void Play(char ch)
 {
-	COUT << "\n\nPlayer1's turn-->";
-	std::string player1Input;
-	std::cin >> player1Input;
-	if (player1Input == "1" && ca[0] != ca[10])
-		ca[0] = ca[9];
-	if (player1Input == "2" && ca[1] != ca[10])
-		ca[1] = ca[9];
-	if (player1Input == "3" && ca[2] != ca[10])
-		ca[2] = ca[9];
-	if (player1Input == "4" && ca[3] != ca[10])
-		ca[3] = ca[9];
-	if (player1Input == "5" && ca[4] != ca[10])
-		ca[4] = ca[9];
-	if (player1Input == "6" && ca[5] != ca[10])
-		ca[5] = ca[9];
-	if (player1Input == "7" && ca[6] != ca[10])
-		ca[6] = ca[9];
-	if (player1Input == "8" && ca[7] != ca[10])
-		ca[7] = ca[9];
-	if (player1Input == "9" && ca[8] != ca[10])
-		ca[8] = ca[9];
-}
+	switch (ch)
+	{
+	case 'X': COUT << "\n\nPlayer1's turn-->";
+		break;
+	case 'O': COUT << "\n\nPlayer2's turn-->";
+		break;
+	}
+	int player_input;
+	std::cin >> player_input;
 
-void Player2Play()
-{
-	COUT << "\n\nPlayer2's turn-->";
-	std::string player2Input;
-	std::cin >> player2Input;
-	if (player2Input == "1" && ca[0] != ca[9])
-		ca[0] = ca[10];
-	if (player2Input == "2" && ca[1] != ca[9])
-		ca[1] = ca[10];
-	if (player2Input == "3" && ca[2] != ca[9])
-		ca[2] = ca[10];
-	if (player2Input == "4" && ca[3] != ca[9])
-		ca[3] = ca[10];
-	if (player2Input == "5" && ca[4] != ca[9])
-		ca[4] = ca[10];
-	if (player2Input == "6" && ca[5] != ca[9])
-		ca[5] = ca[10];
-	if (player2Input == "7" && ca[6] != ca[9])
-		ca[6] = ca[10];
-	if (player2Input == "8" && ca[7] != ca[9])
-		ca[7] = ca[10];
-	if (player2Input == "9" && ca[8] != ca[9])
-		ca[8] = ca[10];
-}
+	if (isdigit(ca[player_input - 1]))
+		ca[player_input - 1] = ch;
 
+
+}
 void Game1()
 {
 	if (player1turn)
 	{
-		Player1Play();
+		Play('X');
 		player1turn = false;
 		player2turn = true;
 	}
@@ -130,7 +96,7 @@ void Game2()
 {
 	if (player2turn)
 	{
-		Player2Play();
+		Play('O');
 		player1turn = true;
 		player2turn = false;
 	}
