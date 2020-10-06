@@ -14,8 +14,6 @@ private:
 	bool m_player2turn = false;
 	bool m_Win1 = false;
 	bool m_Win2 = false;
-public:
-	bool m_gameOver = false;
 	void Play(char ch)
 	{
 		switch (ch)
@@ -31,36 +29,6 @@ public:
 		if (isdigit(ca[player_input - 1]))
 			ca[player_input - 1] = ch;
 	}
-	void Board()
-	{
-		std::cout << "      Tic-Tac-Toe\n\n\n\n";
-
-		std::cout << GAP << GAP << "\t\n";
-		std::cout << G << ca[0] << GAP << G << ca[1] << GAP << G << ca[2] << "\t\n";
-		std::cout << GAP << GAP << "\t\n";
-
-		std::cout << "--------|-------|--------\t\n";
-
-		std::cout << GAP << GAP << "\t\n";
-		std::cout << G << ca[3] << GAP << G << ca[4] << GAP << G << ca[5] << "\t\n";
-		std::cout << GAP << GAP << "\t\n";
-
-		std::cout << "--------|-------|--------\t\n";
-
-		std::cout << GAP << GAP << "\t\n";
-		std::cout << G << ca[6] << GAP << G << ca[7] << GAP << G << ca[8] << "\t\n";
-		std::cout << GAP << GAP << "\t\n";
-
-		if (m_Win1)
-		{
-			std::cout << "\n\tPlayer1 wins\n\n\n";
-		}
-		if (m_Win2)
-		{
-			std::cout << "\n\tPlayer2 wins\n\n\n";
-		}
-	}
-
 
 	void Turn(int a)
 	{
@@ -111,8 +79,38 @@ public:
 		if (ca[0] == ca[ch] && ca[4] == ca[ch] && ca[8] == ca[ch]) Check(check);
 	}
 
+public:
+	bool m_gameOver = false;
+	void Board()
+	{
+		std::cout << "      Tic-Tac-Toe\n\n\n\n";
 
-	void Logic()
+		std::cout << GAP << GAP << "\t\n";
+		std::cout << G << ca[0] << GAP << G << ca[1] << GAP << G << ca[2] << "\t\n";
+		std::cout << GAP << GAP << "\t\n";
+
+		std::cout << "--------|-------|--------\t\n";
+
+		std::cout << GAP << GAP << "\t\n";
+		std::cout << G << ca[3] << GAP << G << ca[4] << GAP << G << ca[5] << "\t\n";
+		std::cout << GAP << GAP << "\t\n";
+
+		std::cout << "--------|-------|--------\t\n";
+
+		std::cout << GAP << GAP << "\t\n";
+		std::cout << G << ca[6] << GAP << G << ca[7] << GAP << G << ca[8] << "\t\n";
+		std::cout << GAP << GAP << "\t\n";
+
+		if (m_Win1)
+		{
+			std::cout << "\n\tPlayer1 wins\n\n\n";
+		}
+		if (m_Win2)
+		{
+			std::cout << "\n\tPlayer2 wins\n\n\n";
+		}
+	}
+	void GamePlay()
 	{
 		Board();
 		Turn(1);
@@ -129,8 +127,7 @@ int main()
 	Game game;
 	do 
 	{
-		game.Logic();
-
+		game.GamePlay();
 	} 
 	while (!game.m_gameOver);
 	game.Board();
