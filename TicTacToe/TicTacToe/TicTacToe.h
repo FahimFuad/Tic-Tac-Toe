@@ -1,14 +1,22 @@
+#include <iostream>
+#include <string>
 
-/*struct Timer
+#define GAP "\t|"
+#define TAB "\t"
+#define G "    "
+#define LINE "-------|"
+
+class TicTacToe
 {
-	std::chrono::time_point<std::chrono::steady_clock> start, end;
-	std::chrono::duration<float> duration;
-	Timer() { start = std::chrono::high_resolution_clock::now(); }
-	~Timer()
-	{
-		end = std::chrono::high_resolution_clock::now();
-		duration = end - start;
-		float ms = duration.count() * 1000.0f;
-		std::cout << "Timer took: " << ms << "ms\n";
-	}
-};*/
+public:
+	bool m_gameOver = false;
+	void Board();
+	void StartGame();
+	void RollUp();
+private:
+	void Play(char ch);
+	void Turn(int a);
+	void Check(int a);
+	void winCheck(int ch, int check);
+	void PauseExecution(int sec);
+};
